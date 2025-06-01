@@ -1,8 +1,8 @@
 {
     "image.library.notifications.url": "${image.library.url}notifications/%image%.png",
     "achievements.images.url": "${image.library.url}Quests/%image%.png",
-    "camera.url": "http://localhost/swf/camera",
-    "thumbnails.url": "${camera.url}/thumbnails/%thumbnail%.png",
+    "camera.url": "http://localhost/camera/",
+    "thumbnails.url": "http://localhost/camera/humbnail/%thumbnail%.png",
     "url.prefix": "http://localhost",
     "habbopages.url": "${url.prefix}/",
     "group.homepage.url": "${url.prefix}/groups/%groupid%/id",
@@ -65,7 +65,28 @@
     ],
     "hotelview": {
         "show.avatar": true,
-        "widgets": {},
+        "widgets": {
+            "slot.1.widget": "promoarticle",
+            "slot.1.conf": {},
+            "slot.2.widget": "widgetcontainer",
+            "slot.2.conf": {
+                "image": "${image.library.url}web_promo_small/spromo_Canal_Bundle.png",
+                "texts": "2021NitroPromo",
+                "btnLink": "https://google.com"
+            },
+            "slot.3.widget": "promoarticle",
+            "slot.3.conf": {},
+            "slot.4.widget": "",
+            "slot.4.conf": {},
+            "slot.5.widget": "",
+            "slot.5.conf": {},
+            "slot.6.widget": "achievementcompetition_hall_of_fame",
+            "slot.6.conf": {
+                "campaign": "habboFameComp"
+            },
+            "slot.7.widget": "",
+            "slot.7.conf": {}
+        },
         "images": {
             "background": "${asset.url}/images/reception/stretch_blue.png",
             "background.colour": "#6eadc8",
@@ -106,13 +127,11 @@
     },
     "currency.display.number.short": false,
     "currency.asset.icon.url": "${images.url}/wallet/%type%.png",
-    "currency.seasonal.color": "bronze",
     "catalog.asset.url": "${image.library.url}catalogue",
     "catalog.asset.image.url": "${catalog.asset.url}/%name%.gif",
     "catalog.asset.icon.url": "${catalog.asset.url}/icon_%name%.png",
     "catalog.tab.icons": false,
     "catalog.headers": false,
-    "catalog.gifts.show.my.face": true,
     "chat.input.maxlength": 100,
     "chat.styles.disabled": [],
     "chat.styles": [
