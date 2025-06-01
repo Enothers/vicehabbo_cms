@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+*
+{
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+body {
+  background: #F6F7FB;
+  color: #333232;
+  font-family: "Ubuntu";
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+  position: relative;
+}
+
+iframe
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+}
+
+.success {
+  background-color: #2fd363;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  padding: 25px 25px 25px 70px;
+  overflow: hidden;
+  border-radius: 10px;
+  animation: slideIn 0.4s ease forwards;
+  z-index: 1000;
+}
+
+.success.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+.success > img {
+  top: -5px;
+  left: 0;
+  position: absolute;
+}
+
+.errorAlert {
+  background-color: #D32F2F;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  padding: 25px 25px 25px 70px;
+  overflow: hidden;
+  border-radius: 10px;
+  animation: slideIn 0.4s ease forwards;
+  z-index: 1000;
+}
+
+.errorAlert.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+.errorAlert > img {
+  top: -5px;
+  left: 0;
+  position: absolute;
+}
+
+a {
+  text-decoration: none;
+}
+
+.splitLogin
+{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}

@@ -1,0 +1,9 @@
+.contentMe {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    grid-template-rows: 1fr;
+    gap: 30px;
+    grid-template-areas:
+        ". .";
+    margin-top: 30px;
+}

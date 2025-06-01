@@ -1,0 +1,86 @@
+.navbar
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0 0 0;
+}
+
+.left
+{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #d1c9c9;
+    border-radius: 10px;
+    display: flex;
+    padding: 15px;
+    gap: 15px;
+}
+
+.item
+{
+    background-color: #ececec;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+.item:hover
+{
+    background: #5B3176;
+    transition: .3s;
+}
+
+.item:hover::before {
+    content: '';
+    position: absolute;
+    top: 100%;           /* place juste en dessous */
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    border-width: 0 8px 8px 8px; /* triangle plus large et plus haut */
+    border-style: solid;
+    border-color: transparent transparent #5B3176 transparent;
+    z-index: 10;
+}
+
+
+.item:hover::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ececec;
+    color: #333232;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.btnHotel
+{
+    background-color: #5b3176;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+}
