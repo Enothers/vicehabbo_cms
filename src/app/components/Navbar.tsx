@@ -90,7 +90,7 @@ export default function Navbar() {
                 style={{
                   position: "absolute",
                   top: "10px",
-                  right: "10px",
+                  left: "10px",
                   zIndex: 10001,
                   padding: "10px",
                   background: "#f44336",
