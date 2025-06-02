@@ -1,9 +1,9 @@
 {
     "image.library.notifications.url": "${image.library.url}notifications/%image%.png",
     "achievements.images.url": "${image.library.url}Quests/%image%.png",
-    "camera.url": "http://localhost/camera/",
-    "thumbnails.url": "http://localhost/camera/humbnail/%thumbnail%.png",
-    "url.prefix": "http://localhost",
+    "camera.url": "https://camera.url",
+    "thumbnails.url": "https://camera.url/thumbnail/%thumbnail%.png",
+    "url.prefix": "https://website.com",
     "habbopages.url": "${url.prefix}/",
     "group.homepage.url": "${url.prefix}/groups/%groupid%/id",
     "guide.help.alpha.groupid": 0,
@@ -70,26 +70,31 @@
             "slot.1.conf": {},
             "slot.2.widget": "widgetcontainer",
             "slot.2.conf": {
-                "image": "https://images.habbo.com/c_images/web_promo_small/spromo_vwavepet22.png",
-                "texts": "vice2k25",
-                "btnLink": "http://discord.gg/vicehabbo"
+                "image": "${image.library.url}web_promo_small/spromo_Canal_Bundle.png",
+                "texts": "2021NitroPromo",
+                "btnLink": "https://google.com"
             },
-            "slot.3.widget": "",
+            "slot.3.widget": "promoarticle",
             "slot.3.conf": {},
             "slot.4.widget": "",
             "slot.4.conf": {},
             "slot.5.widget": "",
             "slot.5.conf": {},
-            "slot.6.widget": "",
-            "slot.6.conf": {},
+            "slot.6.widget": "achievementcompetition_hall_of_fame",
+            "slot.6.conf": {
+                "campaign": "habboFameComp"
+            },
             "slot.7.widget": "",
             "slot.7.conf": {}
         },
         "images": {
-            "background": "https://images.habbo.com/c_images/reception/background_gradient_may22.png",
+            "background": "${asset.url}/images/reception/stretch_blue.png",
+            "background.colour": "#6eadc8",
+            "sun": "${asset.url}/images/reception/sun.png",
             "drape": "${asset.url}/images/reception/drape.png",
-            "left": "https://images.habbo.com/c_images/reception/background_left_May22.png",
-            "right": "https://images.habbo.com/c_images/reception/background_right_easter2016.png"
+            "left": "${asset.url}/images/reception/ts.png",
+            "right": "${asset.url}/images/reception/US_right.png",
+            "right.repeat": "${asset.url}/images/reception/US_top_right.png"
         }
     },
     "achievements.unseen.ignored": [
