@@ -17,14 +17,19 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <base href="./">
     <title>Nitro</title>
-    <script type="module" crossorigin src="./assets/index-518e727d.js"></script>
+    <script type="module" crossorigin src="./assets/index-c0d0da3c.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/vendor-48792d42.js">
     <link rel="modulepreload" crossorigin href="./assets/nitro-renderer-493a6bde.js">
     <link rel="stylesheet" href="./src/assets/index.css">
+<link href="./assets/css/app.2cf3b5b9.css" rel="preload" as="style">
+<link href="./assets/js/app.886bdc44.js" rel="preload" as="script">
+<link href="./assets/js/chunk-vendors.c09b4641.js" rel="preload" as="script">
+<link href="./assets/css/app.2cf3b5b9.css" rel="stylesheet">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root" class="w-100 h-100"></div>
+<div id="app"></div>
     <script>
       const NitroConfig = {
         "config.urls": [ './renderer-config.json', './ui-config.json' ],
@@ -34,6 +39,6 @@
         "friend.id": (new URLSearchParams(window.location.search).get('friend') || 0),
       };
     </script>
-    
+    <script src="./assets/js/chunk-vendors.c09b4641.js"></script><script src="./assets/js/app.886bdc44.js"></script>
   </body>
 </html>

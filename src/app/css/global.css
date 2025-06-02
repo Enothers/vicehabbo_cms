@@ -82,7 +82,7 @@ iframe
   color: white;
   font-weight: bold;
   font-size: 14px;
-  position: absolute;
+  position: fixed;
   left: 20px;
   bottom: 20px;
   padding: 25px 25px 25px 70px;

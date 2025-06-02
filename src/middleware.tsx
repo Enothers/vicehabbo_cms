@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
 
   // Simple check : redirection selon la présence du token
-  if (url.pathname === '/me') {
+  if (url.pathname === '/me' || url.pathname === '/shop' || url.pathname === '/forum') {
     if (!token) {
       url.pathname = '/login';
       return NextResponse.redirect(url);
@@ -22,5 +22,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/me', '/login', '/register'],
+  matcher: ['/me', '/login', '/register', '/shop', '/forum'],
 };
