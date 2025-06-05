@@ -3,9 +3,6 @@ import mysql from 'mysql2/promise';
 let pool: mysql.Pool | undefined;
 
 export function getPool(): mysql.Pool {
-    if (!process.env.HOST_DB || !process.env.USER_DB || !process.env.PASSWORD_DB || !process.env.DATABASE_DB) {
-        throw new Error("Variables d'environnement MySQL manquantes");
-    }
     if (!pool) {
         try {
             const config = {

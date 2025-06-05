@@ -2,8 +2,6 @@ import { jwtVerify, SignJWT } from 'jose';
 import bcrypt from 'bcryptjs';
 
 const JWT_SECRET = process.env.JWT_SECRET;
-if (!JWT_SECRET)
-    throw (new Error("JWT_SECRET doit être défini en env"));
 
 const encoder = new TextEncoder();
 const secretUint8 = encoder.encode(JWT_SECRET);
