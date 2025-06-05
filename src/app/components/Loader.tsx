@@ -2,14 +2,14 @@ export default function Loader() {
   return (
     <>
       <div style={{
-        position: 'absolute', // Positionnement absolu
-        top: '400px',          // 50% depuis le haut du parent positionné
-        left: '50%',         // 50% depuis la gauche du parent positionné
-        transform: 'translateX(-50%)', // Centrage parfait en utilisant la translation
-        zIndex: 1000,             // S'assurer qu'il est au-dessus des autres éléments
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)', // Centrage horizontal + vertical
+        zIndex: 1000,
       }}>
         <div style={{
-          border: '6px solid #f3f3f3',
+          border: '6px solid #EEEEEE',
           borderTop: '6px solid #5B3176',
           borderRadius: '50%',
           width: '50px',

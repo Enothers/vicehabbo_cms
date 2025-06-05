@@ -1,0 +1,87 @@
+.VicePass {
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+
+.title {
+    background-color: #5B3176;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 16px 16px 0 0;
+    align-items: center;
+}
+
+.title>img {
+    width: 20px;
+}
+
+.scrollContainer {
+    position: relative;
+    padding-bottom: 5px;
+    margin-top: 3px;
+}
+
+.scrollInner {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scrollInner::-webkit-scrollbar {
+    display: none;
+}
+
+.contentPass {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: max-content;
+}
+
+.free,
+.vip {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: #ABABAB;
+    min-width: max-content;
+}
+
+.vip {
+    background-color: #e2d628;
+}
+
+.item {
+    background: #EEEEEE;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 10px;
+}
+
+.scrollbarTrack {
+    height: 8px;
+    background: #EEEEEE;
+    border-radius: 8px;
+    position: relative;
+    margin: 14px 8px 8px 8px;
+}
+
+.scrollbarThumb {
+    height: 100%;
+    background: #DBDBDB;
+    border-radius: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left 0.1s;
+    cursor: pointer;
+}

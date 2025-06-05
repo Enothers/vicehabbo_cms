@@ -1,9 +1,21 @@
-.contentMe {
-    display: grid;
-    grid-template-columns: 380px 1fr;
-    grid-template-rows: 1fr;
+.gridSp
+{
+    display: grid; 
+    grid-template-columns: 0.5fr 1fr; 
+    grid-template-rows: 1fr; 
     gap: 30px;
-    grid-template-areas:
-        ". .";
-    margin-top: 30px;
+    grid-template-areas: 
+        ". ."; 
+}
+
+.gridSp > div {
+  min-width: 0;
+}
+
+.footerMe
+{
+  background-color: #EEEEEE;
+  padding: 15px;
+  border-radius: 16px;
+  margin-bottom: 30px;
 }

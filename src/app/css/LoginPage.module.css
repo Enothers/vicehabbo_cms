@@ -1,0 +1,15 @@
+.contentNews
+{
+    position: relative;
+    background-color: white;
+    z-index: 900;
+    padding: 20px;
+}
+
+.contentRegister
+{
+    background-color: #EEEEEE;
+    margin-top: 3px;
+    padding: 20px;
+    border-radius: 0 0 16px 16px;
+}

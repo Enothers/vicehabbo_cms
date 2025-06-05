@@ -1,24 +1,28 @@
-import mysql from 'mysql2/promise'; // Assuming you are using mysql2/promise for async/await
+import mysql from 'mysql2/promise';
 
-// Declare the pool variable at the module level
-let pool: mysql.Pool | undefined; // Initialize it as undefined, or null
+let pool: mysql.Pool | undefined;
 
-export function getPool() {
-  if (!pool) {
-    try {
-      pool = mysql.createPool({
-        host: process.env.HOST_DB,
-        user: process.env.USER_DB,
-        password: process.env.PASSWORD_DB,
-        database: process.env.DATABASE_DB,
-        waitForConnections: true,
-        connectionLimit: 10,
-        queueLimit: 0,
-      });
-    } catch (err: any) { // Add type annotation for err
-      console.error("Erreur de connexion MySQL :", err.message);
-      throw err;
+export function getPool(): mysql.Pool {
+    if (!process.env.HOST_DB || !process.env.USER_DB || !process.env.PASSWORD_DB || !process.env.DATABASE_DB) {
+        throw new Error("Variables d'environnement MySQL manquantes");
     }
-  }
-  return pool;
+    if (!pool) {
+        try {
+            const config = {
+                host: process.env.HOST_DB,
+                user: process.env.USER_DB,
+                password: process.env.PASSWORD_DB,
+                database: process.env.DATABASE_DB,
+                waitForConnections: true,
+                connectionLimit: 10,
+                queueLimit: 0,
+            };
+            pool = mysql.createPool(config);
+        }
+        catch (err: any) {
+            console.error("Error MySQL :", err);
+            throw (err);
+        }
+    }
+    return (pool);
 }

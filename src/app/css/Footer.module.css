@@ -1,0 +1,40 @@
+.footer
+{
+    background-color: #DBDBDB;
+    color: #2D2D2D;
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 16px;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo
+{
+    width: 60px;
+}
+
+.sple
+{
+    position: absolute;
+    right: 195px;
+    top: -10px;
+}
+
+.enothers
+{
+    position: absolute;
+    right: 120px;
+    top: -20px;
+}
+
+.jonathan
+{
+    position: absolute;
+    right: 40px;
+    top: -12px;
+}

@@ -1,5 +1,3 @@
-import Navbar from "./components/Navbar";
-import { AuthProvider } from "./context/authContext";
 import "./css/global.css";
 
 export default function RootLayout({
@@ -8,14 +6,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
+      <head>
+        <title>ViceHabbo</title>
+      </head>
       <body>
-        <div className="container">
-          <AuthProvider>
-            <Navbar />
-            {children}
-          </AuthProvider>
-        </div>
+        {children}
       </body>
     </html>
   );

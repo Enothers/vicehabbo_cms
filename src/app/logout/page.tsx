@@ -1,32 +1,26 @@
 'use client';
 
-import { useAuth } from "../context/authContext";
-import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
-export default function LogoutPage() {
-  const router = useRouter();
-  const { checkAuth } = useAuth();
-
+export default function Logout() {
   useEffect(() => {
-    const handleLogout = async () => {
+    const logout = async () => {
       try {
         const res = await fetch('/api/auth/logout', { method: 'POST' });
         if (res.ok) {
-          window.dispatchEvent(new Event("user-logout"));
-          await checkAuth(); // met à jour l’état global
+          window.dispatchEvent(new Event('user-logout'));
         } else {
           console.error('Erreur lors de la déconnexion');
         }
-      } catch (err) {
+      } catch (error) {
         console.error('Erreur réseau lors de la déconnexion');
       } finally {
-        router.replace('/login');
+        window.location.replace('/login');
       }
     };
 
-    handleLogout();
-  }, [checkAuth, router]);
+    logout();
+  }, []);
 
-  return null; // pas besoin d'afficher quoi que ce soit
+  return null;
 }

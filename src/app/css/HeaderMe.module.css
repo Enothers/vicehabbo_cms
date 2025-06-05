@@ -1,0 +1,257 @@
+.header
+{
+    background: #5B3176;
+    height: 180px;
+    margin-bottom: 160px;
+}
+
+.headerMarginBottom {
+  margin-bottom: 270px;
+}
+
+.line
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.logo > img
+{
+    width: 160px;
+}
+
+.navbar
+{
+    position: relative;
+    z-index: 800;
+    background-color: white;
+    width: 100%;
+    height: 120px;
+    outline: 15px solid #DBDBDB; 
+    border-radius: 16px 16px 0 0;
+    position: relative;
+    box-sizing: border-box;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar::before
+{
+    content: "";
+    position: absolute;
+    left: -229px;
+    bottom: 40px;
+    background: #5B3176;
+    width: 215px;
+    height: 100px;
+    box-sizing: border-box;
+    border-radius: 0 0 16px 0;
+}
+
+.navbar::after
+{
+    content: "";
+    position: absolute;
+    right: -229px;
+    bottom: 40px;
+    background: #5B3176;
+    width: 215px;
+    height: 100px;
+    box-sizing: border-box;
+    border-radius: 0 0 0 16px;
+}
+
+.items
+{
+    display: flex;
+    gap: 15px;
+}
+
+.item
+{
+    width: 60px;
+    height: 60px;
+    background-color: #EEEEEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.gap
+{
+    width: 100%;
+    height: 3px;
+}
+
+.friends
+{
+    position: relative;
+    z-index: 1000;
+    background-color: #EEEEEE;
+    padding: 10px 30px;
+    border-radius: 0 0 16px 16px;
+    color: #7A7A7A;
+    font-weight: bold;
+    font-size: 14px;
+    transition: border-radius 0.3s ease;
+}
+
+.topFriends
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chevron
+{
+    cursor: pointer;
+}
+
+.hotelBtn
+{
+    background-color: #2ED377;
+    width: 200px;
+    height: 60px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.hotelBtn > img
+{
+    width: 20px;
+}
+
+.rUo8ehjd9
+{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.inputSearch
+{
+    background-color: #EEEEEE;
+    padding: 0 60px 0 25px;
+    width: 245px;
+    height: 60px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.inputSearch::placeholder
+{
+    font-weight: bold;
+    color: #909090;
+}
+
+.Ie98dE2
+{
+    position: relative;
+}
+
+.search
+{
+    position: absolute;
+    right: 15px;
+    top: 12px;
+}
+
+.topFriends {
+  border-radius: 8px;
+  transition: border-radius 0.3s ease;
+  cursor: pointer;
+}
+
+.friendsWrapper {
+    overflow-x: scroll;
+    position: relative;
+    background-color: #EEEEEE;
+    border-radius: 0 0 16px 16px;
+
+    /* Cacher scrollbar - Firefox */
+    scrollbar-width: none; 
+    /* Cacher scrollbar - Chrome, Safari et Edge */
+    -ms-overflow-style: none;  /* IE et Edge */
+}
+
+.friendsWrapper::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari et Opera */
+}
+
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-30%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-30%);
+        opacity: 0;
+    }
+}
+
+/* Nouvelle classe : animation d’entrée */
+.friendsWrapperIn {
+    animation: slideDown 0.3s ease forwards;
+}
+
+/* Nouvelle classe : animation de sortie */
+.friendsWrapperOut {
+    animation: slideUp 0.3s ease forwards;
+    pointer-events: none;
+}
+
+/* Nouveau conteneur de contenu */
+.friendsContent {
+    display: flex;
+    gap: 15px;
+    padding: 10px 30px;
+    background-color: #EEEEEE;
+    position: relative;
+}
+
+.friendCard {
+    flex: 0 0 auto;
+    width: 90px;
+    height: 90px;
+    background-color: #DBDBDB;
+    border-radius: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.friendCard img {
+    width: 100px;
+    top: -7px;
+    left: -7px;
+    position: absolute;
+}
+
+.noRadius {
+    border-radius: 0;
+}
