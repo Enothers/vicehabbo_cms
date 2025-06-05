@@ -21,22 +21,22 @@ export default function Header() {
     const friendsList = [
         { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
         { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-         { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-          { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-           { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-            { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-             { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-              { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-               { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-                { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-                  { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-          { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-           { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-            { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-             { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-              { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-               { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-                { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
 
     ];
 
@@ -56,21 +56,21 @@ export default function Header() {
 
     const friendsWrapperRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const el = friendsWrapperRef.current;
-    if (!el) return;
+    useEffect(() => {
+        const el = friendsWrapperRef.current;
+        if (!el) return;
 
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      el.scrollLeft += e.deltaY;
-    };
+        const onWheel = (e: WheelEvent) => {
+            e.preventDefault();
+            el.scrollLeft += e.deltaY;
+        };
 
-    el.addEventListener("wheel", onWheel, { passive: false });
+        el.addEventListener("wheel", onWheel, { passive: false });
 
-    return () => {
-      el.removeEventListener("wheel", onWheel);
-    };
-  }, []);
+        return () => {
+            el.removeEventListener("wheel", onWheel);
+        };
+    }, []);
 
     return (
         <div className={`${styles.header} ${showFriends ? styles.headerMarginBottom : ''}`}>
@@ -102,12 +102,12 @@ export default function Header() {
                                 type="text"
                             />
                         </div>
-                        <Link href="/hotel">
+                        <a href="/hotel" target="_blank" rel="noopener noreferrer">
                             <div className={styles.hotelBtn}>
                                 <img src="hotel.png" alt="Hotel" />
-                                Rejoindre l'hotel
+                                Rejoindre l'hôtel
                             </div>
-                        </Link>
+                        </a>
                     </div>
                 </div>
 
