@@ -5,7 +5,11 @@ import Link from "next/link";
 import { ChevronDown, ChevronUp, Search } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-export default function Header() {
+type HeaderProps = {
+    look: string;
+};
+
+export default function Header({ look }: HeaderProps) {
     const navItems = [
         { name: "Accueil", icon: "1.gif", path: "/me" },
         { name: "Equipe", icon: "2.gif", path: "/staffs" },
@@ -79,7 +83,20 @@ export default function Header() {
                     <div className={styles.logo}>
                         <img src="hv.png" alt="Logo" />
                     </div>
-                    <div className={styles.buttons}>buttons</div>
+                    <div className={styles.buttons}>
+                        <div className={styles.Ozui877}>
+                             <img
+                                src={`https://imager.vicehabbo.eu/?figure=${look}&direction=2&head_direction=2`}
+                                alt="User"
+                            />
+                        </div>
+                        <div className={styles.OZji8232}>
+                            <img src="settings.png" alt="Settings" />
+                        </div>
+                        <div className={styles.OZji872}>
+                            <img src="info.png" alt="Information" />
+                        </div>
+                    </div>
                 </div>
 
                 <div className={styles.navbar}>

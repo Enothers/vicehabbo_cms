@@ -11,6 +11,7 @@ import VicePass from "@/app/components/Vicepass";
 import Footer from "@/app/components/Footer";
 import Appart from "@/app/components/Appart";
 import Discord from "@/app/components/Discord";
+import Dedicaces from "@/app/components/Dedicaces";
 
 export default function Me() {
     const [user, setUser] = useState<any>(null);
@@ -56,7 +57,7 @@ export default function Me() {
 
     return (
         <>
-            <Header />
+            <Header look={user.look}/>
             <div className="container">
                 <div className={styles.gridSp}>
                     <div className={styles.col}>
@@ -77,6 +78,7 @@ export default function Me() {
                     <div className={styles.col}>
                         <div className={styles.row}>
                             <News />
+                            <Dedicaces />
                             <div className={styles.gridPo}>
                                 <div className={styles.col}>
                                     <Appart />
