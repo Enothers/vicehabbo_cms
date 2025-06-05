@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation";
 import Loader from "@/app/components/Loader";
 import VicePass from "@/app/components/Vicepass";
 import Footer from "@/app/components/Footer";
+import Appart from "@/app/components/Appart";
+import Discord from "@/app/components/Discord";
 
 export default function Me() {
     const [user, setUser] = useState<any>(null);
@@ -75,6 +77,14 @@ export default function Me() {
                     <div className={styles.col}>
                         <div className={styles.row}>
                             <News />
+                            <div className={styles.gridPo}>
+                                <div className={styles.col}>
+                                    <Appart />
+                                </div>
+                                <div className={styles.col}>
+                                    <Discord />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
