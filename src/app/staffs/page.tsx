@@ -15,12 +15,12 @@ interface User {
     online: boolean;
 }
 
-const gradesMap: Record<number, { label: string, color: string }> = {
-    13: { label: "Fondation", color: "#D94FA3" },
-    12: { label: "Développement", color: "#5EA4A8" },
-    11: { label: "Administration", color: "#5B3176" },
-    9: { label: "Modération", color: "#9b9b9b" },
-    8: { label: "Animation", color: "#68A85E" },
+const gradesMap: Record<number, { label: string, color: string, badge: string }> = {
+    13: { label: "Fondation", color: "#FEB163", badge: "FONDA.gif" },
+    12: { label: "Développement", color: "#5EA4A8", badge: "DEV.gif" },
+    11: { label: "Administration", color: "#5B3176", badge: "ADMIN.gif" },
+    9:  { label: "Modération", color: "#9b9b9b", badge: "MOD.gif" },
+    8:  { label: "Animation", color: "#68A85E", badge: "ANIM.gif" },
 };
 
 export default function Staffs() {
@@ -62,7 +62,7 @@ export default function Staffs() {
                 <div className={styles.staffs}>
                     {Object.entries(gradesMap)
                         .sort((a, b) => parseInt(b[0]) - parseInt(a[0]))
-                        .map(([gradeId, { label, color }]) => {
+                        .map(([gradeId, { label, color, badge }]) => {
 
                             const gradeUsers = users.filter(u => u.rank === parseInt(gradeId));
                             if (gradeUsers.length === 0) return null;
@@ -70,7 +70,6 @@ export default function Staffs() {
                             return (
                                 <div className={styles.cat} key={gradeId}>
                                     <div className={styles.title} style={{ backgroundColor: color }}>
-                                        <img src="FONDA.gif" alt="" />
                                         {label}
                                     </div>
                                     <div className={styles.cardContainer}>
@@ -83,6 +82,7 @@ export default function Staffs() {
                                                     />
                                                 </div>
                                                 <div className={styles.name}>{staff.username}</div>
+                                                <img className={styles.bdg} src={badge} alt={label} />
                                                 <img className={styles.status} src={staff.online ? "online.gif" : "offline.png"} alt="" />
                                             </div>
                                         ))}
