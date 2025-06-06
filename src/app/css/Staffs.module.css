@@ -1,0 +1,105 @@
+.footerMe {
+    background-color: #EEEEEE;
+    padding: 15px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+
+.staffs
+{
+    background: #EEEEEE;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.title
+{
+    box-sizing: border-box;
+    display: flex;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 20px;
+    gap: 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.cat
+{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.card
+{
+    height: 100px;
+    width: 250px;
+    border-radius: 16px;
+    background-color: #DBDBDB;
+    position: relative;
+}
+
+.avat
+{
+    background: #EEEEEE;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+}
+
+.avat > img
+{
+    position: absolute;
+    left: -5px;
+    top: -10px;
+    width: 90px;
+}
+
+.name
+{
+    position: absolute;
+    background: #EEEEEE;
+    padding: 8px 20px 8px 60px;
+    left: 50px;
+    top: 20px;
+    z-index: 1;
+    border-radius: 0 10px 10px 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.grade
+{
+    position: absolute;
+    right: 70px;
+    top: 50px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.status
+{
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+.cardContainer
+{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}

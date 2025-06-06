@@ -12,7 +12,14 @@ export default function Login() {
                 <News />
             </div>
             <div className={styles.contentRegister}>
-                register content
+                <div className={styles.registerContent}>
+                    <h2>Crée ton <span style={{ color: '#5B3176' }}>avatar</span>, <span style={{ color: '#5B3176' }}>explore</span>, crée ton<br /><span style={{ color: '#5B3176' }}>appart</span> et interagis avec les autres<br />joueurs.</h2>
+                     <div className={styles.cardContent}>
+                        <div className={styles.card}>
+                          dd
+                        </div>
+                     </div>
+                </div>
                 <Footer />
             </div>
         </div>
