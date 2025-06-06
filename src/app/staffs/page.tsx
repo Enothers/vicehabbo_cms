@@ -12,7 +12,7 @@ interface User {
     username: string;
     look: string;
     rank: number;
-    online: boolean;
+    online: string; // bien que ce soit censé être un bool, c'est une string "1" ou "0"
 }
 
 const gradesMap: Record<number, { label: string, color: string, badge: string }> = {
@@ -83,7 +83,11 @@ export default function Staffs() {
                                                 </div>
                                                 <div className={styles.name}>{staff.username}</div>
                                                 <img className={styles.bdg} src={badge} alt={label} />
-                                                <img className={styles.status} src={staff.online ? "online.gif" : "offline.png"} alt="" />
+                                                <img
+                                                    className={styles.status}
+                                                    src={staff.online === "1" ? "online.gif" : "offline.png"}
+                                                    alt=""
+                                                />
                                             </div>
                                         ))}
                                     </div>
