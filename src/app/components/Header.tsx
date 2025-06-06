@@ -12,8 +12,8 @@ type HeaderProps = {
 export default function Header({ look }: HeaderProps) {
     const navItems = [
         { name: "Accueil", icon: "1.gif", path: "/me" },
-        { name: "Equipe", icon: "2.gif", path: "/staffs" },
         { name: "Articles", icon: "3.gif", path: "/news" },
+        { name: "Equipe", icon: "2.gif", path: "/staffs" },
         { name: "Boutique", icon: "4.gif", path: "/shop" },
         { name: "Forum", icon: "5.gif", path: "/forum" },
     ];
