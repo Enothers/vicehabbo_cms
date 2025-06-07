@@ -1,12 +1,17 @@
 'use client';
 
-import styles from "@/app/css/HeaderMe.module.css"
+import styles from "@/app/css/HeaderMe.module.css";
 import Link from "next/link";
 import { ChevronDown, ChevronUp, Search } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 type HeaderProps = {
     look: string;
+};
+
+type Friend = {
+    name: string;
+    avatar: string;
 };
 
 export default function Header({ look }: HeaderProps) {
@@ -21,28 +26,37 @@ export default function Header({ look }: HeaderProps) {
     const [showFriends, setShowFriends] = useState(false);
     const [animateClose, setAnimateClose] = useState(false);
     const [radius, setRadius] = useState(false);
+    const [friendsList, setFriendsList] = useState<Friend[]>([]);
 
-    const friendsList = [
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
-        { name: "Jonathan", avatar: "https://avatar.habbocity.me/?figure=lg-281-92.fa-1206-1410.ha-1002-1410.hd-180-1.hr-839-110.ch-267-1410.sh-290-1410.ea-1401-1410&size=l&direction=2&head_direction=2" },
+    const friendsWrapperRef = useRef<HTMLDivElement>(null);
 
-    ];
+    useEffect(() => {
+        async function fetchFriends() {
+            try {
+                const res = await fetch("/api/friends");
+                if (!res.ok) throw new Error("Erreur réseau");
+                const data = await res.json();
+                setFriendsList(data);
+            } catch (error) {
+                console.error("Erreur lors du chargement des amis :", error);
+            }
+        }
+
+        fetchFriends();
+    }, []);
+
+    useEffect(() => {
+        const el = friendsWrapperRef.current;
+        if (!el) return;
+
+        const onWheel = (e: WheelEvent) => {
+            e.preventDefault();
+            el.scrollLeft += e.deltaY;
+        };
+
+        el.addEventListener("wheel", onWheel, { passive: false });
+        return () => el.removeEventListener("wheel", onWheel);
+    }, []);
 
     const toggleFriends = () => {
         if (showFriends) {
@@ -58,24 +72,6 @@ export default function Header({ look }: HeaderProps) {
         }
     };
 
-    const friendsWrapperRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const el = friendsWrapperRef.current;
-        if (!el) return;
-
-        const onWheel = (e: WheelEvent) => {
-            e.preventDefault();
-            el.scrollLeft += e.deltaY;
-        };
-
-        el.addEventListener("wheel", onWheel, { passive: false });
-
-        return () => {
-            el.removeEventListener("wheel", onWheel);
-        };
-    }, []);
-
     return (
         <div className={`${styles.header} ${showFriends ? styles.headerMarginBottom : ''}`}>
             <div className="container">
@@ -85,7 +81,7 @@ export default function Header({ look }: HeaderProps) {
                     </div>
                     <div className={styles.buttons}>
                         <div className={styles.Ozui877}>
-                             <img
+                            <img
                                 src={`https://imager.vicehabbo.eu/?figure=${look}&direction=2&head_direction=2`}
                                 alt="User"
                             />
@@ -132,7 +128,7 @@ export default function Header({ look }: HeaderProps) {
 
                 <div className={`${styles.friends} ${radius ? styles.noRadius : ""}`}>
                     <div className={styles.topFriends} onClick={toggleFriends}>
-                        Mes amies
+                        Mes amis
                         {showFriends ? (
                             <ChevronUp className={styles.chevron} size={36} color="#7A7A7A" />
                         ) : (
@@ -142,20 +138,28 @@ export default function Header({ look }: HeaderProps) {
                 </div>
 
                 <div
-                    ref={friendsWrapperRef} className={`${styles.friendsWrapper} ${animateClose ? styles.friendsWrapperOut : showFriends ? styles.friendsWrapperIn : ''
-                        }`}
+                    ref={friendsWrapperRef}
+                    className={`${styles.friendsWrapper} ${
+                        animateClose
+                            ? styles.friendsWrapperOut
+                            : showFriends
+                            ? styles.friendsWrapperIn
+                            : ''
+                    }`}
                 >
                     {showFriends && (
                         <div className={styles.friendsContent}>
+                            {friendsList.length === 0 && (
+                                <div className={styles.noFriends}>Aucun ami connecté</div>
+                            )}
                             {friendsList.map((friend, index) => (
-                                <div className={styles.friendCard} key={index}>
+                                <div className={styles.friendCard} key={index} title={friend.name}>
                                     <img src={friend.avatar} alt={friend.name} />
                                 </div>
                             ))}
                         </div>
                     )}
                 </div>
-
             </div>
         </div>
     );
