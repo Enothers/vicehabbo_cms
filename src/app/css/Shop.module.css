@@ -1,0 +1,29 @@
+.footerMe {
+    background-color: #EEEEEE;
+    padding: 15px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+
+.gridSp {
+    display: grid;
+    grid-template-columns: 0.30fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 30px;
+    grid-template-areas:
+        ". .";
+    margin-bottom: 30px;
+}
+
+.col
+{
+
+}
+
+.home
+{
+    width: 100%;
+    height: 639.64px;
+    background-color: white;
+    border-radius: 16px;
+}

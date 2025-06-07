@@ -1,0 +1,90 @@
+.currencys {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.currency {
+    background: #EEEEEE;
+    padding: 13px 20px;
+    border-radius: 10px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 14px;
+    gap: 15px;
+}
+
+.currency>img {
+    width: 20px;
+}
+
+.add {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.navbarShop {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.nav {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item
+{
+     background: #EEEEEE;
+    padding: 13px 20px;
+    border-radius: 10px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 14px;
+    gap: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    height: 50px;
+}
+
+.item:hover
+{
+    background-color: #DBDBDB;
+    transition: .3s;
+}
+
+.item > img {
+    width: 20px;
+}
+
+.active {
+  background-color: #5B3176;
+  color: white;
+}
+
+.active:hover {
+    background-color: #5B3176;
+    cursor: default;
+}
