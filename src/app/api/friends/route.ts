@@ -25,17 +25,19 @@ export async function GET(request: NextRequest) {
         const pool = getPool();
 
         const [rows] = await pool.query(
-            `SELECT u.username, u.look
-             FROM messenger_friendships mf
-             JOIN users u ON (u.id = IF(mf.user_one_id = ?, mf.user_two_id, mf.user_one_id))
-             WHERE (mf.user_one_id = ? OR mf.user_two_id = ?)
-             AND mf.relation = 3`,
-            [userId, userId, userId]
+            `
+            SELECT u.id, u.username, u.look
+            FROM messenger_friendships mf
+            JOIN users u ON u.id = mf.user_two_id
+            WHERE mf.user_one_id = ?
+            `,
+            [userId]
         );
 
         const friends = (rows as any[]).map(friend => ({
+            id: friend.id,
             name: friend.username,
-            avatar: `https://iamger.vicehabbo.eu/?figure=${friend.look}&size=l&direction=2&head_direction=2`,
+            avatar: `https://imager.vicehabbo.eu/?figure=${friend.look}&size=l&direction=2&head_direction=2`,
         }));
 
         return NextResponse.json(friends);

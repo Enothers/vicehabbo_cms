@@ -150,7 +150,8 @@ export default function Header({ look }: HeaderProps) {
                     {showFriends && (
                         <div className={styles.friendsContent}>
                             {friendsList.length === 0 && (
-                                <div className={styles.noFriends}>Aucun ami connecté</div>
+                                <div className={styles.friendCard}>
+                                </div>
                             )}
                             {friendsList.map((friend, index) => (
                                 <div className={styles.friendCard} key={index} title={friend.name}>
