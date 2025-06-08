@@ -16,7 +16,7 @@ export default function AboutModal({ onClose, modalPosition }: Props) {
     dragging: false,
   });
 
-  const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!modalRef.current) return;
 
     const modal = modalRef.current;
@@ -33,11 +33,14 @@ export default function AboutModal({ onClose, modalPosition }: Props) {
     dragData.current.offsetX = e.clientX - rect.left;
     dragData.current.offsetY = e.clientY - rect.top;
 
-    // Empêche la sélection de texte globale pendant le drag
+    // Capture pointer pour recevoir tous les événements même si la souris sort de la modale
+    e.currentTarget.setPointerCapture(e.pointerId);
+
+    // Empêche la sélection du texte pendant le drag
     document.body.style.userSelect = 'none';
   };
 
-  const onMouseMove = (e: MouseEvent) => {
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!dragData.current.dragging || !modalRef.current) return;
 
     let left = e.clientX - dragData.current.offsetX;
@@ -59,24 +62,17 @@ export default function AboutModal({ onClose, modalPosition }: Props) {
     modalPosition.current = { left, top };
   };
 
-  const endDrag = () => {
+  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!dragData.current.dragging) return;
+
     dragData.current.dragging = false;
-    document.body.style.userSelect = ''; // Restaure la sélection
+
+    // Relâche la capture du pointeur
+    e.currentTarget.releasePointerCapture(e.pointerId);
+
+    // Restaure la sélection du texte
+    document.body.style.userSelect = '';
   };
-
-  useEffect(() => {
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseup', endDrag);
-
-    // En cas de perte de focus ou sortie de fenêtre
-    window.addEventListener('blur', endDrag);
-
-    return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseup', endDrag);
-      window.removeEventListener('blur', endDrag);
-    };
-  }, []);
 
   useEffect(() => {
     if (!modalRef.current) return;
@@ -118,7 +114,11 @@ export default function AboutModal({ onClose, modalPosition }: Props) {
           alignItems: 'center',
           fontWeight: 'bold',
         }}
-        onMouseDown={onMouseDown}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        // Optionnel : empêcher que le drag soit interrompu par d'autres événements
+        onPointerCancel={onPointerUp}
       >
         À propos
         <button
@@ -132,6 +132,7 @@ export default function AboutModal({ onClose, modalPosition }: Props) {
             padding: '0 5px',
           }}
           aria-label="Fermer"
+          onPointerDown={e => e.stopPropagation()} // éviter de déclencher drag quand on clique sur le bouton
         >
           &times;
         </button>
