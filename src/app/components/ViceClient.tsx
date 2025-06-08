@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import AboutModal from './AboutModal';
+import SecretModal from './SecretModal';
 
 type Props = {
   sso: string;
@@ -9,7 +10,9 @@ type Props = {
 
 export default function ViceClient({ sso }: Props) {
   const [showAbout, setShowAbout] = useState(false);
+  const [showSecret, setShowSecret] = useState(false);
   const modalPosition = useRef<{ left: number; top: number } | null>(null);
+  const secretPosition = useRef<{ left: number; top: number } | null>(null);
 
   useEffect(() => {
     const ws = new WebSocket('wss://ws.vicehabbo.eu:8443');
@@ -24,8 +27,12 @@ export default function ViceClient({ sso }: Props) {
       try {
         const data = JSON.parse(event.data);
 
-        if (data.command === ':about') {
+        if (data.command === 'about') {
           setShowAbout(true);
+        }
+
+         if (data.command === 'secret') {
+          setShowSecret(true);
         }
 
       } catch (e) {
@@ -45,6 +52,7 @@ export default function ViceClient({ sso }: Props) {
   return (
     <>
       {showAbout && <AboutModal onClose={() => setShowAbout(false)} modalPosition={modalPosition} />}
+      {showSecret && <SecretModal onClose={() => setShowSecret(false)} modalPosition={secretPosition} />}
     </>
   );
 }
