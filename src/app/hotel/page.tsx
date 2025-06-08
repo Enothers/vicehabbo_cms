@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Loader from '@/app/components/Loader';
+import ViceClient from '@/app/components/ViceClient';
 
 export default function Hotel() {
   const [ticket, setTicket] = useState<string | null>(null);
@@ -74,6 +75,7 @@ export default function Hotel() {
         height="100%"
         style={{ border: 'none', display: 'block' }}
       />
+      <ViceClient sso={ticket} />
     </div>
   );
 }
