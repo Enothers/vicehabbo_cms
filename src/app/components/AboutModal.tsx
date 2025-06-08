@@ -4,8 +4,10 @@ import React, { useEffect, useRef } from 'react';
 
 type Props = {
   onClose: () => void;
-  // Ajout de la prop pour mémoriser la position, comme dans le second exemple
-  modalPosition: React.MutableRefObject<{ left: number; top: number } | null>;
+  // Correction du type pour éviter l'avertissement de dépréciation.
+  // Nous décrivons la forme de l'objet ref ({ current: ... })
+  // au lieu d'utiliser le type nommé MutableRefObject.
+  modalPosition: { current: { left: number; top: number } | null };
 };
 
 export default function AboutModal({ onClose, modalPosition }: Props) {
