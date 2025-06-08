@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AboutModal from './AboutModal';
 
 type Props = {
@@ -9,6 +9,7 @@ type Props = {
 
 export default function ViceClient({ sso }: Props) {
   const [showAbout, setShowAbout] = useState(false);
+  const modalPosition = useRef<{ left: number; top: number } | null>(null);
 
   useEffect(() => {
     const ws = new WebSocket('wss://ws.vicehabbo.eu:8443');
@@ -43,7 +44,7 @@ export default function ViceClient({ sso }: Props) {
 
   return (
     <>
-      {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}
+      {showAbout && <AboutModal onClose={() => setShowAbout(false)} modalPosition={modalPosition} />}
     </>
   );
 }
