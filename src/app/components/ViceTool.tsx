@@ -15,32 +15,32 @@ export default function ViceTool({ onClose, modalPosition, ws }: Props) {
   const [userId, setUserId] = useState<number | null>(null);
 
   useEffect(() => {
-        const fetchUserId = async () => {
-            try {
-                const res = await fetch('/api/user/getInfo', {
-                    credentials: 'include', // Nécessaire si le cookie de session est utilisé
-                });
+    const fetchUserId = async () => {
+      try {
+        const res = await fetch('/api/user/getInfo', {
+          credentials: 'include', // Nécessaire si le cookie de session est utilisé
+        });
 
-                if (!res.ok) throw new Error('Échec lors de la récupération de l’utilisateur');
+        if (!res.ok) throw new Error('Échec lors de la récupération de l’utilisateur');
 
-                const data = await res.json();
-                setUserId(data.user.id);
-            } catch (error) {
-                console.error('Erreur fetch user ID :', error);
-            }
-        };
-
-        fetchUserId();
-    }, []);
-    
-    const sendAlert = () => {
-        if (userId && ws && ws.readyState === WebSocket.OPEN) {
-            ws.send(JSON.stringify({
-                type: 'alert_room',
-                userId,
-            }));
-        }
+        const data = await res.json();
+        setUserId(data.user.id);
+      } catch (error) {
+        console.error('Erreur fetch user ID :', error);
+      }
     };
+
+    fetchUserId();
+  }, []);
+
+  const sendAlert = () => {
+    if (userId && ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({
+        type: 'alert_room',
+        userId,
+      }));
+    }
+  };
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!modalRef.current) return;
@@ -111,8 +111,7 @@ export default function ViceTool({ onClose, modalPosition, ws }: Props) {
         onPointerCancel={onPointerUp}
       >
         <div className={styles.Ojfj8}>
-            <img src="settings.png" alt="" />
-            ViceTool
+          ViceTool
         </div>
         <button
           onClick={onClose}
@@ -120,13 +119,20 @@ export default function ViceTool({ onClose, modalPosition, ws }: Props) {
           aria-label="Fermer"
           onPointerDown={e => e.stopPropagation()}
         >
-            <img src="close_24.png" alt="" />
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADYUExUReLi4t3d3bm5uZubm5GRkaCgoK+vr9jY2MTExJ2dncfHx/39/enp6ZaWlr6+vuzs7Pj4+Pb29uvr6+Pj4+Xl5erq6u/v7/Hx8fDw8NPT09LS0oWFhc7OzmZmZnV1dXl5ecPDw+Hh4dnZ2dra2t/f3+Dg4NXV1eTk5MrKynR0dMvLy4ODg+fn556enoyMjN7e3ujo6KamprW1tfX19aysrJycnNDQ0JiYmObm5tTU1Jqams3Nze3t7czMzNbW1u7u7rq6up+fn8jIyPf39/T09Pn5+f////v7+zIz/VYAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEDSURBVChTRdDrWoJAEAbg4SBLiFZCZOCwCaSCJImKZZadu/87asZnpe/HMvPuwLMLUDTdMFU6lmABsM8c6Kq4eq/P1jfE+YWy7uVAGDaA6AnwwL8KrofBwKchYWhgWTwOtHGKrkPnhoswCtt1ZIDJBhHGIYQxRtyYCn2J8W2Mkj/KOD6iKxFRuoxjwiTVsuzOnxBOplmmpSkjJ53lhPns2JywyFEmEvOC9lucoyyhlDjnxoR7h5/eoqyS6mEBVBdLsGvGalXRe9VKo3pdg7tpWP/TbB9h+rRraKhNs3umw+5H2/WLksSpN68Hvs0heFuqH2++f3zu2eiOX98/Kr9DDwD+AJ5aI/lCZTCSAAAAAElFTkSuQmCC"
+            className="bt-exit"
+            alt="Exit button"
+          />
         </button>
       </div>
       <div className={styles.modalContent}>
         <div className={styles.packed}>
-             <div className={styles.name}>Animations</div>
-             <div onClick={sendAlert} className={styles.btnSendAnim}>Lancer une animation</div>
+          <div className={styles.name}>
+            <img src="icon_gamer.png" alt="" />
+            Animations
+            </div>
+          <div onClick={sendAlert} className={styles.btnSendAnim}>Lancer une animation</div>
         </div>
       </div>
     </div>
