@@ -73,7 +73,7 @@ export default function Hotel() {
         src={`https://nitro.vicehabbo.eu/?sso=${ticket}`}
         width="100%"
         height="100%"
-        style={{ border: 'none', display: 'block' }}
+        style={{ border: 'none', display: 'block'}} 
       />
       <ViceClient sso={ticket} />
     </div>
