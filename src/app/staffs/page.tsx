@@ -12,7 +12,8 @@ interface User {
     username: string;
     look: string;
     rank: number;
-    online: string; // bien que ce soit censé être un bool, c'est une string "1" ou "0"
+    online: string;
+    rank_info: string; // bien que ce soit censé être un bool, c'est une string "1" ou "0"
 }
 
 const gradesMap: Record<number, { label: string, color: string, badge: string }> = {
@@ -88,6 +89,7 @@ export default function Staffs() {
                                                     src={staff.online === "1" ? "online.gif" : "offline.png"}
                                                     alt=""
                                                 />
+                                                <div className={styles.rankInfo}>{staff.rank_info}</div>
                                             </div>
                                         ))}
                                     </div>

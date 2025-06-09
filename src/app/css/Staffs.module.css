@@ -110,3 +110,14 @@
     right: -10px;
     top: -10px;
 }
+
+.rankInfo
+{
+    background-color: #aaaaaa;
+    font-size: 12px;
+    padding: 3px 10px;
+    position: absolute;
+    border-radius: 10px;
+    bottom: 15px;
+    left: 90px;
+}
