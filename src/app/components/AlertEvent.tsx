@@ -74,7 +74,7 @@ export default function AlertEvent({ roomName, roomId, look, username, ws, onClo
                         <div className={styles.d82JDu}>
                             <div className={styles.Poz82}>
                                 <img
-                                    src={`https://avatar.habbocity.me/?figure=${look}&headonly=1&head_direction=2`}
+                                    src={`https://imager.vicehabbo.eu/?figure=${look}&headonly=1&head_direction=2`}
                                     alt={`Avatar de ${username}`}
                                 />
                                 Par {username}

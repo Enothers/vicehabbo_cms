@@ -1,0 +1,64 @@
+/* VicePassModal.module.css */
+.modal {
+  position: fixed;
+  background-color: white;
+  border-radius: 16px;
+  z-index: 1000;
+  width: 380px;
+  height: 490px;
+  user-select: none;
+}
+
+.modalHeader {
+  cursor: move;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Ojfj8 > img
+{
+  width: 20px;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 7px 0 0 0;
+}
+
+.modalContent {
+  padding: 20px;
+}
+
+.Ojfj8
+{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.name
+{
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.btnSendAnim
+{
+  background-color: #EEEEEE;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
