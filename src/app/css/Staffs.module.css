@@ -46,6 +46,16 @@
     border-radius: 16px;
     background-color: #DBDBDB;
     position: relative;
+    border-top: 5px solid transparent;
+     transition: border-top 0.3s ease;
+}
+
+.online {
+    border-top-color: #2ED377;
+}
+
+.offline {
+    border-top-color: rgb(182, 2, 2);
 }
 
 .avat

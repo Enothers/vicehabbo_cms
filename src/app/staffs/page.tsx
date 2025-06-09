@@ -75,22 +75,21 @@ export default function Staffs() {
                                     </div>
                                     <div className={styles.cardContainer}>
                                         {gradeUsers.map((staff) => (
-                                            <div className={styles.card} key={staff.id}>
-                                                <div className={styles.avat}>
-                                                    <img
-                                                        src={`https://imager.vicehabbo.eu/?figure=${staff.look}&size=l&direction=2&head_direction=2`}
-                                                        alt={staff.username}
-                                                    />
-                                                </div>
-                                                <div className={styles.name}>{staff.username}</div>
-                                                <img className={styles.bdg} src={badge} alt={label} />
-                                                <img
-                                                    className={styles.status}
-                                                    src={staff.online === "1" ? "online.gif" : "offline.png"}
-                                                    alt=""
-                                                />
-                                                <div className={styles.rankInfo}>{staff.rank_info}</div>
-                                            </div>
+                                            <div
+    className={`${styles.card} ${staff.online === "1" ? styles.online : styles.offline}`}
+    key={staff.id}
+>
+    <div className={styles.avat}>
+        <img
+            src={`https://imager.vicehabbo.eu/?figure=${staff.look}&size=l&direction=2&head_direction=2`}
+            alt={staff.username}
+        />
+    </div>
+    <div className={styles.name}>{staff.username}</div>
+    <img className={styles.bdg} src={badge} alt={label} />
+    <div className={styles.rankInfo}>{staff.rank_info}</div>
+</div>
+
                                         ))}
                                     </div>
                                 </div>
