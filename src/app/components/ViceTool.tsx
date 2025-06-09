@@ -36,7 +36,7 @@ export default function ViceTool({ onClose, modalPosition, ws }: Props) {
     const sendAlert = () => {
         if (userId && ws && ws.readyState === WebSocket.OPEN) {
             ws.send(JSON.stringify({
-                type: 'alert_toom',
+                type: 'alert_room',
                 userId,
             }));
         }
