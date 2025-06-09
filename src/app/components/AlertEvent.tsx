@@ -36,10 +36,9 @@ export default function AlertEvent({ roomName, roomId, look, username, ws, onClo
     }, []);
 
     const handleClose = () => {
-        setFadeOut(true);
-        setTimeout(() => onClose(), 500);
+        onClose(); // appel direct, pas d'animation
     };
-
+    
     const handleJoin = () => {
         if (userId && ws && ws.readyState === WebSocket.OPEN) {
             ws.send(JSON.stringify({
