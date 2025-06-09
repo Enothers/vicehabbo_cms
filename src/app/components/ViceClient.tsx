@@ -58,7 +58,7 @@ export default function ViceClient({ sso }: Props) {
     ws.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data);
-        console.error('Message valide:', event.data);
+        console.log('Message valide:', event.data);
 
         if (data.command === 'about') setShowAbout(true);
         if (data.command === 'secret') setShowSecret(true);
