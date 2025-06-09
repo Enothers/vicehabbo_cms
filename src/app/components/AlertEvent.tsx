@@ -70,7 +70,7 @@ export default function AlertEvent({ roomName, roomId, look, username, ws, onClo
                             [APPART] {roomName}
                             <br /><br /><br />
                             Viens participer à l'événement exceptionnel organisé par {username} dans son
-                            appartement !<br /><br /><br />Pour tenter de repartir avec 3 lots !
+                            appartement !<br /><br /><br />Pour tenter de repartir avec des lots unique !
                         </div>
                         <div className={styles.d82JDu}>
                             <div className={styles.Poz82}>
