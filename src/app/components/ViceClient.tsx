@@ -87,7 +87,6 @@ export default function ViceClient({ sso }: Props) {
           roomName={eventData.roomName}
           look={eventData.look}
           username={eventData.username}
-          sso={sso}
           ws={wsRef.current}
           onClose={() => setEventData(null)}
         />
