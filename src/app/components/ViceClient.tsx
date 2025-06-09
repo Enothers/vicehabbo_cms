@@ -66,6 +66,11 @@ export default function ViceClient({ sso }: Props) {
           const { roomName, roomId, look, username } = data;
           setEventData({ roomName, roomId, look, username });
         }
+        if (data.command === 'ping') {
+            ws.send(JSON.stringify({
+                type: 'pong',
+            }));
+        }
       } catch (e) {
         console.error('Message invalide:', event.data);
       }
