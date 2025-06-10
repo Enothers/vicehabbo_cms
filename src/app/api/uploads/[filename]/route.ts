@@ -1,11 +1,12 @@
-// app/api/uploads/[filename]/route.ts
-
 import { NextRequest, NextResponse } from 'next/server';
 import path from 'path';
 import fs from 'fs/promises';
 
-export async function GET(request: NextRequest, { params }: { params: { filename: string } }) {
-  const { filename } = params;
+export async function GET(request: NextRequest) {
+  // Extraire le filename depuis l'URL
+  const { pathname } = new URL(request.url);
+  const parts = pathname.split('/'); // ['','api','uploads','filename']
+  const filename = parts[parts.length - 1];
 
   if (!filename) {
     return NextResponse.json({ error: 'Nom de fichier manquant' }, { status: 400 });
