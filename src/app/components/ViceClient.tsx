@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import AboutModal from './AboutModal';
-import SecretModal from './SecretModal';
+import WiredSoundModal from './WiredSoundModal';
 import AlertEvent from './AlertEvent';
 import ViceTool from './ViceTool';
 
@@ -17,15 +17,19 @@ type EventAlertData = {
   username: string;
 };
 
+type SoundWiredData = {
+  wiredId: string;
+};
+
 export default function ViceClient({ sso }: Props) {
   const [showAbout, setShowAbout] = useState(false);
-  const [showSecret, setShowSecret] = useState(false);
+  const [showWiredSound, setshowWiredSound] = useState<SoundWiredData | null>(null);
   const [showViceTool, setShowViceTool] = useState(false);
   const [eventData, setEventData] = useState<EventAlertData | null>(null);
   const [rank, setRank] = useState<number | null>(null);
 
   const modalPosition = useRef<{ left: number; top: number } | null>(null);
-  const secretPosition = useRef<{ left: number; top: number } | null>(null);
+  const wiredSoundPosition = useRef<{ left: number; top: number } | null>(null);
   const passPosition = useRef<{ left: number; top: number } | null>(null);
   const wsRef = useRef<WebSocket | null>(null);
 
@@ -63,7 +67,6 @@ export default function ViceClient({ sso }: Props) {
         console.log('Message reçu:', event.data);
 
         if (data.command === 'about') setShowAbout(true);
-        if (data.command === 'secret') setShowSecret(true);
         if (data.command === 'eventalert') {
           const { roomName, roomId, look, username } = data;
           setEventData({ roomName, roomId, look, username });
@@ -73,15 +76,21 @@ export default function ViceClient({ sso }: Props) {
         }
 
         if (data.command === 'sound_play') {
+          const { filename } = data;
+
+          const audioUrl = `/uploads/${filename}`;
           const audio = audioRef.current;
           if (audio) {
-            if (!audio.paused) {
-              audio.currentTime = 0;
-            }
+            audio.src = audioUrl;
             audio.play().catch((err) => {
-              console.warn('Lecture audio échouée :', err);
+              console.warn('[VICE] Lecture fichier sélectionné échouée:', err);
             });
           }
+        }
+
+        if (data.command === 'openModalWiredSound') {
+          const { wiredId } = data;
+          setshowWiredSound({ wiredId });
         }
 
       } catch (e) {
@@ -99,7 +108,7 @@ export default function ViceClient({ sso }: Props) {
 
   return (
     <>
-      <audio ref={audioRef} src="sound.mp3" preload="auto" />
+      <audio ref={audioRef} src="" preload="auto" />
 
       {rank !== null && rank >= 8 && (
         <div style={{ position: 'fixed', left: '20px', top: '20px', zIndex: 999 }}>
@@ -127,10 +136,12 @@ export default function ViceClient({ sso }: Props) {
         />
       )}
 
-      {showSecret && (
-        <SecretModal
-          onClose={() => setShowSecret(false)}
-          modalPosition={secretPosition}
+      {showWiredSound && wsRef.current && (
+        <WiredSoundModal
+          ws={wsRef.current}
+          wiredId={showWiredSound.wiredId}
+          onClose={() => setEventData(null)}
+          modalPosition={wiredSoundPosition}
         />
       )}
 
