@@ -22,14 +22,16 @@ export default function ViceClient({ sso }: Props) {
   const [showSecret, setShowSecret] = useState(false);
   const [showViceTool, setShowViceTool] = useState(false);
   const [eventData, setEventData] = useState<EventAlertData | null>(null);
-  const [rank, setRank] = useState<number | null>(null); // <-- Nouveau state
+  const [rank, setRank] = useState<number | null>(null);
 
   const modalPosition = useRef<{ left: number; top: number } | null>(null);
   const secretPosition = useRef<{ left: number; top: number } | null>(null);
   const passPosition = useRef<{ left: number; top: number } | null>(null);
   const wsRef = useRef<WebSocket | null>(null);
 
-  // Récupérer rank au chargement
+  // Référence audio
+  const audioRef = useRef<HTMLAudioElement>(null);
+
   useEffect(() => {
     const fetchUserRank = async () => {
       try {
@@ -38,7 +40,7 @@ export default function ViceClient({ sso }: Props) {
         });
         if (!res.ok) throw new Error('Échec récupération infos utilisateur');
         const data = await res.json();
-        setRank(data.user.rank); // <-- Assumons que rank est ici
+        setRank(data.user.rank);
       } catch (e) {
         console.error('Erreur fetch rank:', e);
       }
@@ -58,7 +60,7 @@ export default function ViceClient({ sso }: Props) {
     ws.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data);
-        console.log('Message valide:', event.data);
+        console.log('Message reçu:', event.data);
 
         if (data.command === 'about') setShowAbout(true);
         if (data.command === 'secret') setShowSecret(true);
@@ -67,10 +69,21 @@ export default function ViceClient({ sso }: Props) {
           setEventData({ roomName, roomId, look, username });
         }
         if (data.command === 'ping') {
-            ws.send(JSON.stringify({
-                type: 'pong',
-            }));
+          ws.send(JSON.stringify({ type: 'pong' }));
         }
+
+        if (data.command === 'sound_play') {
+          const audio = audioRef.current;
+          if (audio) {
+            if (!audio.paused) {
+              audio.currentTime = 0;
+            }
+            audio.play().catch((err) => {
+              console.warn('Lecture audio échouée :', err);
+            });
+          }
+        }
+
       } catch (e) {
         console.error('Message invalide:', event.data);
       }
@@ -86,7 +99,8 @@ export default function ViceClient({ sso }: Props) {
 
   return (
     <>
-      {/* Afficher bouton seulement si rank >= 8 */}
+      <audio ref={audioRef} src="sound.mp3" preload="auto" />
+
       {rank !== null && rank >= 8 && (
         <div style={{ position: 'fixed', left: '20px', top: '20px', zIndex: 999 }}>
           <button
