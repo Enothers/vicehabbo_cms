@@ -140,7 +140,7 @@ export default function ViceClient({ sso }: Props) {
         <WiredSoundModal
           ws={wsRef.current}
           wiredId={showWiredSound.wiredId}
-          onClose={() => setEventData(null)}
+          onClose={() => setshowWiredSound(null)}
           modalPosition={wiredSoundPosition}
         />
       )}
