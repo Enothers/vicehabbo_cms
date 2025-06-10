@@ -78,7 +78,7 @@ export default function ViceClient({ sso }: Props) {
         if (data.command === 'sound_play') {
           const { filename } = data;
 
-          const audioUrl = `/uploads/${filename}`;
+          const audioUrl = `/api/uploads/${filename}`;
           const audio = audioRef.current;
 
           if (audio) {
@@ -155,7 +155,7 @@ export default function ViceClient({ sso }: Props) {
           modalPosition={wiredSoundPosition}
         />
       )}
-
+      
       {showViceTool && wsRef.current && (
         <ViceTool
           ws={wsRef.current}

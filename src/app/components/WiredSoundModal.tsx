@@ -95,7 +95,7 @@ export default function WiredSoundModal({ ws, wiredId, onClose, modalPosition }:
         filename
       }));
     }
-    onClose(); // Fermer le modal après sélection
+    onClose();
   };
 
   useEffect(() => {
