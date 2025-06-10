@@ -76,28 +76,28 @@ export default function ViceClient({ sso }: Props) {
         }
 
         if (data.command === 'sound_play') {
-          const { filename } = data;
+            const { filename } = data;
 
-          const audioUrl = `/uploads/${filename}`;
-          const audio = audioRef.current;
+            // URL via API route Next.js
+            const audioUrl = `/api/uploads/${filename}`;
+            const audio = audioRef.current;
 
-          if (audio) {
-            try {
-              audio.pause(); // stoppe l'ancien son
-              audio.currentTime = 0; // remet au début
-              audio.src = audioUrl;
+            if (audio) {
+              try {
+                audio.pause();
+                audio.currentTime = 0;
+                audio.src = audioUrl;
 
-              // Optionnel : attendre que la nouvelle source soit prête
-              audio.oncanplaythrough = () => {
-                audio.play().catch((err) => {
-                  console.warn('[VICE] Lecture fichier échouée:', err);
-                });
-              };
-            } catch (err) {
-              console.warn('[VICE] Erreur manipulation audio:', err);
+                audio.oncanplaythrough = () => {
+                  audio.play().catch((err) => {
+                    console.warn('[VICE] Lecture fichier échouée:', err);
+                  });
+                };
+              } catch (err) {
+                console.warn('[VICE] Erreur manipulation audio:', err);
+              }
             }
           }
-        }
 
         if (data.command === 'openModalWiredSound') {
           const { wiredId } = data;
