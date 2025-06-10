@@ -80,11 +80,22 @@ export default function ViceClient({ sso }: Props) {
 
           const audioUrl = `/uploads/${filename}`;
           const audio = audioRef.current;
+
           if (audio) {
-            audio.src = audioUrl;
-            audio.play().catch((err) => {
-              console.warn('[VICE] Lecture fichier sélectionné échouée:', err);
-            });
+            try {
+              audio.pause(); // stoppe l'ancien son
+              audio.currentTime = 0; // remet au début
+              audio.src = audioUrl;
+
+              // Optionnel : attendre que la nouvelle source soit prête
+              audio.oncanplaythrough = () => {
+                audio.play().catch((err) => {
+                  console.warn('[VICE] Lecture fichier échouée:', err);
+                });
+              };
+            } catch (err) {
+              console.warn('[VICE] Erreur manipulation audio:', err);
+            }
           }
         }
 
