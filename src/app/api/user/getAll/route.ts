@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     try {
         await verifyToken(token);
         const pool = getPool();
-        const [rows] = await pool.query("SELECT id, username, look, rank, online, rank_info FROM users WHERE rank >= 8");
+        const [rows] = await pool.query("SELECT id, username, look, rank, online, rank_info FROM users WHERE rank >= 3");
         return NextResponse.json({ users: rows });
     } catch (err) {
         return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });

@@ -22,6 +22,7 @@ const gradesMap: Record<number, { label: string, color: string, badge: string }>
     11: { label: "Administration", color: "#5B3176", badge: "ADMIN.gif" },
     9:  { label: "Modération", color: "#9b9b9b", badge: "MOD.gif" },
     8:  { label: "Animation", color: "#68A85E", badge: "ANIM.gif" },
+    3: {label: "Architect", color: "#A97CC3", badge: "ARCHI.gif"}
 };
 
 export default function Staffs() {
