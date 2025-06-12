@@ -75,7 +75,7 @@ export default function Hotel() {
         height="100%"
         style={{ border: 'none', display: 'block'}} 
       />
-      <ViceClient sso={ticket} />
+      {/* <ViceClient sso={ticket} /> */}
     </div>
   );
 }
